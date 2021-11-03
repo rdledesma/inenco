@@ -16,11 +16,11 @@ class CreatePublicationsTable extends Migration
         Schema::create('publications', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('description');
-            $table->string('image_1');
-            $table->string('image_2');
-            $table->string('image_3');
-
+            $table->text('copete')->nullable();
+            $table->text('description');
+            $table->string('image_1')->nullable();
+            $table->string('image_2')->nullable();
+            $table->string('image_3')->nullable();
             $table->timestamps();
         });
     }

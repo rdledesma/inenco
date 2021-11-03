@@ -1,5 +1,5 @@
 <?php
-
+use App\Integrant;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('integrant', 'IntegrantController');
 
+Route::get('/publicacion/{name}', 'PublicationController@show')->name('publication.show');
 
 
 Route::get('/integrantes', function () {
-    return view('about');
+    $integrants = Integrant::where('state','active')->orderBy('name')->get();
+    return view('about', compact('integrants'));
 })->name('integrantes');
 

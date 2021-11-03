@@ -8,6 +8,15 @@ class Publication extends Model
 {
     protected $fillable = [
         'title',
-        'description'
+        'copete',
+        'description',
+        'image_1',
+        'image_2',
+        'image_3'
     ];
+
+
+
+
+
 }
