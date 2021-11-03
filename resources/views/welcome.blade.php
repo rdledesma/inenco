@@ -84,9 +84,9 @@
 
                         <ul>
 
-                            <li><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
+                            <li class="nav-active"><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
 
-                            <li class="nav-active"><a href="{{route('integrantes')}}" title="Integrantes">Integrantes</a></li>
+                            <li ><a href="{{route('integrantes')}}" title="Integrantes">Integrantes</a></li>
 
                             <li><a href="blog.html" title="Blog">Recursos</a></li>
 

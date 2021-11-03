@@ -147,23 +147,26 @@
 
                 	<div class="thumbnails-pan">
 
-                    	<section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                        @foreach ($integrants as $integrant)
+                            <section class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 
-                        	<figure>
+                                <figure>
 
-                            	<img src="images/about-images/about-image-1.jpg" class="img-responsive"/>
+                                    <img src="{{$integrant->url_photo}}" class="img-responsive"/>
 
-                            	<figcaption>
+                                    <figcaption>
+                                        <h3>{{$integrant->title }}</h3>
+                                        <h5>{{$integrant->name}} </h5>
+                                        <h5>{{$integrant->email}} </h5>
+                                    </figcaption>
 
-                                	<h3>John Doe</h3>
+                                </figure>
 
-                                    <h5>The designer</h5>
+                            </section>
+                        @endforeach
 
-                                </figcaption>
 
-                            </figure>
 
-                        </section>
 
                         <section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
 
