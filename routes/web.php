@@ -20,6 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('integrant', 'IntegrantController');
+Route::resource('publication', 'PublicationController');
+
 
 Route::get('/publicacion/{name}', 'PublicationController@show')->name('publication.show');
 

@@ -21,6 +21,7 @@ class CreatePublicationsTable extends Migration
             $table->string('image_1')->nullable();
             $table->string('image_2')->nullable();
             $table->string('image_3')->nullable();
+            $table->string('state')->default('active');
             $table->timestamps();
         });
     }

@@ -14,7 +14,10 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        //
+        $publications = Publication::where('state','active')->orderBy('id')->get();
+
+
+        return view('publications.index', compact('publications'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PublicationController extends Controller
      */
     public function create()
     {
-        //
+        return view('publications.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'     => 'required',
+            'description'    => 'required',
+            'copete'    => 'required',
+            'image_1'    => 'mimes:jpg,jpeg,png',
+            'image_2'     => 'mimes:jpg,jpeg,png',
+            'image_3'     => 'mimes:jpg,jpeg,png',
+        ]);
+
+
+        $publication = new $request->all();
+
+        $image_1 = $request->file('image_1');
+        if($image_1){
+            $response = cloudinary()->upload($image->getRealPath(),['invalidate'=>true]);
+            $event['image_public_id'] = $response->getPublicId();
+            $event['image'] = $response->getSecurePath();
+        }
+
     }
 
     /**

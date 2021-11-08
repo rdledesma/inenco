@@ -120,12 +120,12 @@
 
                     	<header>
 
-                        	<h2><span>INENCO</span> GRUPOS??</h2>
+                        	<h2><span>GEERS</span> Grupo de evaluación y estudio del recurso solar  </h2>
 
                         </header>
 
-                        <p>Aquí podemos escribir nombre de grupo o alguna frase identificatoria.</p>
-
+                       {{--  <p>Aquí podemos escribir nombre de grupo o alguna frase identificatoria.</p>
+ --}}
                     </article>
 
                 </section>

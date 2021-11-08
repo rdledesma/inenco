@@ -12,7 +12,8 @@ class Publication extends Model
         'description',
         'image_1',
         'image_2',
-        'image_3'
+        'image_3',
+        'state'
     ];
 
 
