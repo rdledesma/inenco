@@ -3,23 +3,24 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Nuevo Integrante</h1>
+            <h1>Editar Integrante</h1>
         </div>
     </div>
 
     <div class="row">
         <div class="col-12">
             <form class="bg-white shadow rounded py-3 px-4"
-            action="{{route('integrant.store')}}"
+            action="{{route('integrant.update', $integrant->id)}}"
             method="POST"
             enctype="multipart/form-data">
+            @method('PUT')
             @csrf
 
 
                 <div id="myContainer" class="container">
                     <div class="wrapper">
                         <div class="image">
-                            <img id = "blah" src="" alt="">
+                            <img id = "blah" src="{{$integrant->url_photo}}" alt="">
                         </div>
                         <div class="content">
                             <div class="icon"><i class="fa fa-cloud-upload" ></i></div>
@@ -30,7 +31,7 @@
                     </div>
                     <div class="form-group">
 
-                        <input type="file" name="photo" onchange="readURL(this);" class="form-control bg-ligth shadow-sm @if($errors->first('photo')) is-invalid @else border-0 @endif" />
+                        <input type="file" name="url_photo" onchange="readURL(this);" class="form-control bg-ligth shadow-sm @if($errors->first('photo')) is-invalid @else border-0 @endif" />
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('photo', ':message') }} </strong>
                         </span>
@@ -47,7 +48,7 @@
                     id="name"
                     type="name"
                     name="name"
-                    value="{{old('name')}}">
+                    value="{{$integrant->name}}">
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('name', ':message') }} </strong>
@@ -61,7 +62,7 @@
                     id="title"
                     type="name"
                     name="title"
-                    value="{{old('title')}}">
+                    value="{{$integrant->title}}">
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('title', ':message') }} </strong>
@@ -74,7 +75,7 @@
                     id="description"
                     type="name"
                     name="description"
-                    value="{{old('description')}}">
+                    value="{{$integrant->description}}">
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('description', ':message') }} </strong>
@@ -89,7 +90,7 @@
                     id="email"
                     type="email"
                     name="email"
-                    value="{{old('email')}}">
+                    value="{{$integrant->email}}">
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('email', ':message') }} </strong>

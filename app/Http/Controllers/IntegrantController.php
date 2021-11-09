@@ -57,9 +57,11 @@ class IntegrantController extends Controller
      * @param  \App\Integrant  $integrant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Integrant $integrant)
+    public function edit($id)
     {
-        //
+        $integrant = Integrant::where('id',$id)->first();
+
+        return view('integrants.edit', compact('integrant'));
     }
 
     /**
@@ -69,9 +71,35 @@ class IntegrantController extends Controller
      * @param  \App\Integrant  $integrant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Integrant $integrant)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'     => 'required',
+            'title'    => 'required',
+            'email'    => 'required',
+            'description' => 'required'
+        ]);
+
+
+        $integrant = Integrant::where('id',$id)->first();
+
+        $integrant['email'] = $request['email'];
+        $integrant['name'] = $request['name'];
+        $integrant['title'] = $request['title'];
+        $integrant['description'] = $request['description'];
+
+
+        $image = $request->file('url_photo');
+        if($image){
+            $response = cloudinary()->upload($image_1->getRealPath(),['invalidate'=>true]);
+            $integrant['url_photo'] = $response->getPublicId();
+            $integrant['photo_id'] = $response->getSecurePath();
+        }
+
+
+        if($integrant->save()){
+            return redirect()->route('integrant.index')->with('alert', 'Integrante actualizado con éxito');
+        }
     }
 
     /**
@@ -80,8 +108,12 @@ class IntegrantController extends Controller
      * @param  \App\Integrant  $integrant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Integrant $integrant)
+    public function destroy($id)
     {
-        //
+        $integrant  = Integrant::where('id',$id)->first();
+        $integrant['state'] = 'inactive';
+        $integrant->update();
+
+        return redirect()->route('integrant.index');
     }
 }
