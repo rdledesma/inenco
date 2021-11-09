@@ -19,8 +19,12 @@ class CreatePublicationsTable extends Migration
             $table->text('copete')->nullable();
             $table->text('description');
             $table->string('image_1')->nullable();
+            $table->string('id_image_1')->nullable();
             $table->string('image_2')->nullable();
+            $table->string('id_image_2')->nullable();
             $table->string('image_3')->nullable();
+            $table->string('id_image_3')->nullable();
+            $table->string('slug')->unique();
             $table->string('state')->default('active');
             $table->timestamps();
         });

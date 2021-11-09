@@ -1,5 +1,6 @@
 <?php
 use App\Integrant;
+use App\Publication;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,8 @@ use App\Integrant;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $publications = Publication::where('state','active')->get();
+    return view('welcome', compact('publications'));
 });
 
 Auth::routes();
@@ -23,7 +25,7 @@ Route::resource('integrant', 'IntegrantController');
 Route::resource('publication', 'PublicationController');
 
 
-Route::get('/publicacion/{name}', 'PublicationController@show')->name('publication.show');
+Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
 Route::get('/integrantes', function () {

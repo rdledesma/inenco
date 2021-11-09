@@ -66,7 +66,7 @@
 
                     	<h1>
 
-                        	<a href="{{ url('/') }}" title="avana LLC"><img src="images/logow.png" title="avana LLC" alt="avana LLC"/></a>
+                        	<a href="{{ url('/') }}" title="GEERS"><img src="images/logo.png" width="400%" title="avana LLC" alt="GEERS"/></a>
 
                         </h1>
 
@@ -120,7 +120,7 @@
 
                     	<header>
 
-                        	<h2><span>GEERS</span> Grupo de evaluación y estudio del recurso solar  </h2>
+                        	<h2><span>GEERS</span> Grupo de Estudio y Evaluación de la Radiación Solar  </h2>
 
                         </header>
 
@@ -132,376 +132,28 @@
 
 
 
+
+                @foreach ($publications as $item)
                 <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 
                 	<figure class="effect-oscar">
 
-                    	<img src="images/home-images/image-1.jpg" alt="" class="img-responsive"/>
+                    	<img src="{{$item->image_1}}" alt="" class="img-responsive"/>
 
                         <figcaption>
 
-                        	<h2>Eliana Dedda<span> Identity</span></h2>
+                        	<h3>{{$item->title}}</h3>
 
-							<p>Personal Brand Identity.</p>
+							<p class="lead"><small>{{ substr($item->copete, 0,  115).'...' }} </small></p>
 
-							<a href="works-details.html">View more</a>
+							<a href="{{route('publication.ver', $item->id)}}">View more</a>
 
                         </figcaption>
 
                     </figure>
 
                 </section>
-
-
-
-                <div class="clearfix"></div>
-
-
-
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-
-                	<ul class="grid-lod effect-2" id="grid">
-
-                    	<li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                            <figcaption>
-
-
-
-                                    <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                    <a href="works-details.html">View more</a>
-
-
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                            <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-
-
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-
-                	<ul class="grid-lod effect-2" id="grid">
-
-                    	<li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                               <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                             <figure class="effect-oscar">
-
-                                <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                                 <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                            </figure>
-
-                        </li>
-
-                        <li>
-
-                       	 	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <a href="works-details.html">View more</a>
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
+                @endforeach
                 <div class="clearfix"></div>
 
             </div>
@@ -516,11 +168,6 @@
 
             <!-- logo -->
 
-                <h1>
-
-                    <a href="/" title="inenco"><img src="images/logow.png" title="avana LLC" alt="avana LLC"/></a>
-
-                </h1>
 
             <!-- logo -->
 
@@ -530,13 +177,13 @@
 
             	<ul>
 
-                	<li><a href="{{ url('/') }}" title="Work">Work</a></li>
+                	<li><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
 
                     <li><a href="{{ url('/integrantes') }}" title="Integrantes">Integrantes</a></li>
 
                     <li><a href="blog.html" title="Blog">Blog</a></li>
 
-                    <li><a href="contact.html" title="Contact">Contact</a></li>
+                    <li><a href="contact.html" title="Contact">Contacto</a></li>
 
                 </ul>
 

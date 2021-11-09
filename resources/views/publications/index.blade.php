@@ -26,7 +26,11 @@
                 <tr>
                     <th>{{$publication->title}}</th>
                     <th>{{$publication->created_at}}</th>
-                    <th> <a href="{{route('publication.show', $publication->id)}}"> Ver</a> </th>
+                    <th>
+                        <a href="{{route('publication.show', $publication->slug)}}"> Ver</a>
+                        <a href="{{route('publication.edit', $publication->id)}}"> Editar</a>
+                        <a href="{{route('publication.destroy', $publication->id)}}"> Eliminar</a>
+                    </th>
                 </tr>
                 @endforeach
             </tbody>

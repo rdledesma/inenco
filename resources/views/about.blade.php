@@ -65,7 +65,7 @@
 
                     	<h1>
 
-                        	<a href="/" title="INENCO"><img src="images/logow.png" title="INENCO" alt="inenco"/></a>
+                        	<a href="/" title="INENCO"><img src="images/logo.png" width="400%" title="INENCO" alt="inenco"/></a>
 
                         </h1>
 

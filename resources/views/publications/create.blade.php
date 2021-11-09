@@ -23,11 +23,11 @@
 
                 <div class="form-group">
                     <label for="title">Título:</label>
-                    <input class="form-control bg-ligth shadow-sm @if($errors->first('titulo')) is-invalid @else border-0 @endif"
-                    id="titulo"
+                    <input class="form-control bg-ligth shadow-sm @if($errors->first('title')) is-invalid @else border-0 @endif"
+                    id="title"
                     type="name"
-                    name="titulo"
-                    value="{{old('titulo')}}">
+                    name="title"
+                    value="{{old('title')}}">
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('titulo', ':message') }} </strong>
@@ -35,7 +35,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="title">Copete:</label>
+                    <label for="copete">Copete:</label>
                     <input class="form-control bg-ligth shadow-sm @if($errors->first('copete')) is-invalid @else border-0 @endif"
                     id="copete"
                     type="name"
@@ -50,31 +50,17 @@
 
                 <div class="form-group">
                     <label for="title">Descripción:</label>
-                    <input class="form-control bg-ligth shadow-sm @if($errors->first('description')) is-invalid @else border-0 @endif"
-                    id="description"
-                    type="name"
-                    name="description"
-                    value="{{old('description')}}">
 
-                        <span class="invalid-feedback" role="alert">
-                            <strong> {{ $errors->first('description', ':message') }} </strong>
-                        </span>
+                    <textarea class="ckeditor form-control bg-ligth shadow-sm @if($errors->first('description')) is-invalid @else border-0 @endif"
+                        id="description"
+                        type="name"
+                        name="description"
+                        value="{{old('description')}}">
+                    </textarea>
+                    <span class="invalid-feedback" role="alert">
+                        <strong> {{ $errors->first('description', ':message') }} </strong>
+                    </span>
                 </div>
-
-                <div class="form-group">
-                    <label for="title">Descripción:</label>
-                    <input class="form-control bg-ligth shadow-sm @if($errors->first('description')) is-invalid @else border-0 @endif"
-                    id="description"
-                    type="name"
-                    name="description"
-                    value="{{old('description')}}">
-
-                        <span class="invalid-feedback" role="alert">
-                            <strong> {{ $errors->first('description', ':message') }} </strong>
-                        </span>
-                </div>
-
-
 
 
                 <div id="myContainer" class="container">
@@ -186,5 +172,6 @@
             reader.readAsDataURL(input.files[0]);
         }
     }
+
 </script>
 @endsection

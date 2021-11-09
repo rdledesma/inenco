@@ -13,6 +13,10 @@ class Publication extends Model
         'image_1',
         'image_2',
         'image_3',
+        'id_image_1',
+        'id_image_2',
+        'id_image_3',
+        'slug',
         'state'
     ];
 

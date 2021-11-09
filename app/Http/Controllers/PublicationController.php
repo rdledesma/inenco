@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Publication;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str as Str;
 class PublicationController extends Controller
 {
     /**
@@ -48,14 +48,37 @@ class PublicationController extends Controller
         ]);
 
 
-        $publication = new $request->all();
-
+        $publication = new Publication($request->all());
         $image_1 = $request->file('image_1');
+        $image_2 = $request->file('image_2');
+        $image_3 = $request->file('image_3');
         if($image_1){
-            $response = cloudinary()->upload($image->getRealPath(),['invalidate'=>true]);
-            $event['image_public_id'] = $response->getPublicId();
-            $event['image'] = $response->getSecurePath();
+            $response = cloudinary()->upload($image_1->getRealPath(),['invalidate'=>true]);
+            $publication['id_image_1'] = $response->getPublicId();
+            $publication['image_1'] = $response->getSecurePath();
         }
+        if($image_2){
+            $response = cloudinary()->upload($image_2->getRealPath(),['invalidate'=>true]);
+            $publication['id_image_2'] = $response->getPublicId();
+            $publication['image_2'] = $response->getSecurePath();
+        }
+
+        if($image_3){
+            $response = cloudinary()->upload($image_3->getRealPath(),['invalidate'=>true]);
+            $publication['id_image_3'] = $response->getPublicId();
+            $publication['image_3'] = $response->getSecurePath();
+        }
+
+        $publication['slug'] =  Str::slug($publication->title);
+
+        if($publication->save()){
+            return redirect()->route('publication.index')->with('alert', 'Nueva publicación creada con éxito');
+        }
+
+
+
+
+
 
     }
 
@@ -65,9 +88,17 @@ class PublicationController extends Controller
      * @param  \App\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($slug)
     {
+        $publication = Publication::where('slug','=', $slug)->firstOrFail();
+        return view('publications.show', compact('publication'));
+    }
 
+
+    public function ver($slug)
+    {
+        $publication = Publication::where('id','=', $slug)->first();
+        return view('publication', compact('publication'));
     }
 
     /**

@@ -16,7 +16,7 @@
 
 
 
-        <title>{{ config('app.name') }}</title>
+        <title>GEERS</title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
@@ -24,31 +24,28 @@
 
         <!-- style -->
 
-        <link href="css/style.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css">
 
         <!-- style -->
 
         <!-- bootstrap -->
 
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
 
         <!-- responsive -->
 
-        <link href="css/responsive.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/responsive.css')}}" rel="stylesheet" type="text/css">
+
+        <!-- font-awesome -->
+        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 
         <!-- font-awesome -->
 
-        <link href="css/fonts.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/effects/set2.css')}}" rel="stylesheet" type="text/css">
 
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/effects/normalize.css')}}" rel="stylesheet" type="text/css">
 
-        <!-- font-awesome -->
-
-        <link href="css/effects/set2.css" rel="stylesheet" type="text/css">
-
-        <link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
-
-        <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
+        <link href="{{asset('css/effects/component.css')}}"  rel="stylesheet" type="text/css" >
 
 	</head>
 
@@ -66,9 +63,9 @@
 
                 	<!-- logo -->
 
-                        <h1>
+                    	<h1>
 
-                            <a href="{{ url('/') }}" title="avana LLC"><img src="images/logow.png" title="avana LLC" alt="avana LLC"/></a>
+                        	<a href="{{ url('/') }}" title="avana LLC"><img src="{{{asset('images/logo.png')}}}" width="400%" title="GEERS" alt="GEERS"/></a>
 
                         </h1>
 
@@ -80,13 +77,13 @@
 
                         <ul>
 
-                            <li class="nav-active"><a href="index.html" title="Work">Work</a></li>
+                            <li><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
 
-                            <li><a href="about.html" title="About">About</a></li>
+                            <li><a href="{{route('integrantes')}}" title="About">Integrantes</a></li>
 
-                            <li><a href="blog.html" title="Blog">Blog</a></li>
+                            <li><a href="blog.html" title="Blog">Recursos</a></li>
 
-                            <li><a href="contact.html" title="Contact">Contact</a></li>
+                            <li><a href="contact.html" title="Contact">Contacto</a></li>
 
                         </ul>
 
@@ -118,57 +115,23 @@
 
                         <div class="row">
 
-                        	<div class="col-xs-12 col-sm-12 col-md-4">
+
+                            <div class="col-xs-12 col-sm-12 col-md-4">
 
                             	<header role="work-title">
 
-                                	<h2>Nombre de publicación</h2>
-
-                                    <a href="#">Visit online <i class="fa fa-external-link" aria-hidden="true"></i></a>
+                                	<h2>{{$publication->title}}</h2>
+                                    <p> <strong> {{$publication->copete}}</strong></p>
+                                    <img class="img-responsive" src="{{$publication->image_1}}" alt="image text">
 
                                 </header>
 
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-8">
-
-                            	<section>
-
-                                	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat eu nibh ultricies semper. Vivamus porta, felis vitae facilisis sodales, felis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ull pellentesque urna rhoncus.</p>
-
-                                    <p>elis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ullamcorper scelerisque pellentes rhoncus.</p>
-
-
-
-                                    <p><strong>Role</strong><br/>
-
-									Branding, Identity, Web Design, UX / UI</p>
-
-                                </section>
-
-
 
                             </div>
+                            <div class="col-md-8">
+                            {!!$publication->description!!}
 
-                        </div>
-
-                        <div class="clearfix"></div>
-
-
-
-                        <div class="work-images grid">
-
-                            <ul class="grid-lod effect-2" id="grid">
-
-                                <li><img src="images/work/works-image-1.jpg" alt="" class="img-responsive"/></li>
-
-                                <li><img src="images/work/works-image-2.jpg" alt="" class="img-responsive"/></li>
-
-                                <li><img src="images/work/works-image-3.jpg" alt="" class="img-responsive"/></li>
-
-                            </ul>
-
-                        </div>
+                            </div>
 
 
 
@@ -188,49 +151,27 @@
 
         <footer role="footer">
 
-            <!-- logo -->
-
-                <h1>
-
-                    <a href="index.html" title="avana LLC"><img src="images/logo.png" title="avana LLC" alt="avana LLC"/></a>
-
-                </h1>
-
-            <!-- logo -->
-
             <!-- nav -->
 
             <nav role="footer-nav">
 
             	<ul>
 
-                	<li><a href="index.html" title="Work">Work</a></li>
+                    <li ><a href="/" title="Publicaciones">Publicaciones</a></li>
 
-                    <li><a href="about.html" title="About">About</a></li>
+                    <li><a href="about.html" title="Integrantes">Integrantes</a></li>
 
-                    <li><a href="blog.html" title="Blog">Blog</a></li>
+                    <li><a href="blog.html" title="Recursos">Recursos</a></li>
 
-                    <li><a href="contact.html" title="Contact">Contact</a></li>
+                    <li><a href="contact.html" title="Contacto">Contacto</a></li>
 
                 </ul>
 
             </nav>
 
-            <!-- nav -->
-
-            <ul role="social-icons">
-
-            	<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-
             </ul>
 
-            <p class="copy-right">&copy; 2015  avana LLC.. All rights Resved</p>
+            <p class="copy-right">&copy; Todos los derechos reservados</p>
 
         </footer>
 
@@ -240,32 +181,29 @@
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
-        <script src="js/jquery.min.js" type="text/javascript"></script>
+        <script src="{{asset('js/jquery.min.js')}}" type="text/javascript"></script>
 
         <!-- custom -->
 
-		<script src="js/nav.js" type="text/javascript"></script>
+		<script src="{{asset('js/nav.js')}}" type="text/javascript"></script>
 
-        <script src="js/custom.js" type="text/javascript"></script>
+        <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
 
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
 
-        <script src="js/effects/masonry.pkgd.min.js"  type="text/javascript"></script>
+        <script src="{{asset('js/effects/masonry.pkgd.min.js')}}"  type="text/javascript"></script>
 
-		<script src="js/effects/imagesloaded.js"  type="text/javascript"></script>
+		<script src="{{asset('js/effects/imagesloaded.js')}}"  type="text/javascript"></script>
 
-		<script src="js/effects/classie.js"  type="text/javascript"></script>
+		<script src="{{asset('js/effects/classie.js')}}"  type="text/javascript"></script>
 
-		<script src="js/effects/AnimOnScroll.js"  type="text/javascript"></script>
+		<script src="{{asset('js/effects/AnimOnScroll.js')}}"  type="text/javascript"></script>
 
-        <script src="js/effects/modernizr.custom.js"></script>
+        <script src="{{asset('js/effects/modernizr.custom.js')}}"></script>
 
-        <!-- jquery.countdown -->
-
-        <script src="js/html5shiv.js" type="text/javascript"></script>
-
+        <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
     </body>
 
 </html>

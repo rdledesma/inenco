@@ -26,7 +26,7 @@
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     <!-- {{ config('app.name', 'Laravel') }} Admin -->
-                    <img src="{{asset('image/LogoMorado.svg')}}" alt="Imagen Logo" width="80px"/>
+                    <img src="{{asset('image/logo.png')}}" alt="Imagen Logo" width="80px"/>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -92,6 +92,10 @@
         </main>
     </div>
     @yield('scripts')
-
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
 </body>
 </html>
