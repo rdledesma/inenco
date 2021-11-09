@@ -53,7 +53,12 @@
 
 
     <body>
+        @if (session('succes_message'))
+        <div class="alert alert-success">
+            {{session('success_message')}}
+        </div>
 
+        @endif
 
 
     	<!-- header -->
@@ -66,7 +71,7 @@
 
                     	<h1>
 
-                        	<a href="{{ url('/') }}" title="GEERS"><img src="images/logo.png" title="GEERS" alt="GEERS"/></a>
+                        	<a href="{{ url('/') }}" title="GEERS"><img src="images/logo.png" width="400%" title="GEERS" alt="GEERS"/></a>
 
                         </h1>
 
@@ -148,34 +153,34 @@
 
                		  <div id="message"></div>
 
-                                <form method="post" action="php/contactfrom.php" name="cform" id="cform">
+                                <form method="post" action="{{route('message.store')}}">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 
-                            <div class="row">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                        <input  name="name" id="name" type="text" placeholder="Nombre">
 
-                                <input  name="name" id="name" type="text" placeholder="Nombre">
+                                        </div>
 
-                                </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
 
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                        <input  name="email" id="email" type="email"  placeholder="Email">
 
-                                <input  name="email" id="email" type="email"  placeholder="Email">
+                                        </div>
 
-                                </div>
+                                    </div>
 
-                            </div>
+                                    <div class="clearfix"></div>
 
-                            <div class="clearfix"></div>
+                                    <textarea name="message" id="message" cols="" rows="" placeholder="Dejanos tu mensaje"></textarea>
 
-                            <textarea name="comments" id="comments" cols="" rows="" placeholder="Dejanos tu mensaje"></textarea>
+                                    <div class="clearfix"></div>
 
-                            <div class="clearfix"></div>
+                                    <input name="" type="submit" value="Enviar email">
 
-                            <input name="" type="submit" value="Enviar email">
+                                    <div id="simple-msg"></div>
 
-                            <div id="simple-msg"></div>
-
-                        </form>
+                                </form>
 
                </div>
 
@@ -250,7 +255,7 @@
         <!-- jquery.countdown -->
 
         <script src="js/html5shiv.js" type="text/javascript"></script>
-
+        @include('sweetalert::alert')
     </body>
 
 </html>

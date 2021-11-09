@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('integrant', 'IntegrantController');
 Route::resource('publication', 'PublicationController');
-
+Route::resource('message', 'MessageController');
 
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
