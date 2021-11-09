@@ -14,7 +14,7 @@ class PublicationController extends Controller
      */
     public function index()
     {
-        $publications = Publication::where('state','active')->orderBy('id')->get();
+        $publications = Publication::where('state','active')->orderBy('id','desc')->get();
 
 
         return view('publications.index', compact('publications'));

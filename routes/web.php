@@ -28,6 +28,12 @@ Route::resource('publication', 'PublicationController');
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
+Route::get('/contacto', function () {
+    return view('contact');
+})->name('contact');
+
+
+
 Route::get('/integrantes', function () {
     $integrants = Integrant::where('state','active')->orderBy('name')->get();
     return view('about', compact('integrants'));

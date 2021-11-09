@@ -25,11 +25,11 @@
                 @foreach ($publications as $publication)
                 <tr>
                     <th>{{$publication->title}}</th>
-                    <th>{{$publication->created_at}}</th>
+                    <th>{{$publication->created_at->format('d-m-Y') }}</th>
                     <th>
-                        <a href="{{route('publication.show', $publication->slug)}}"> Ver</a>
-                        <a href="{{route('publication.edit', $publication->id)}}"> Editar</a>
-                        <a href="{{route('publication.destroy', $publication->id)}}"> Eliminar</a>
+                        <a href="{{ route('publication.edit', $publication->id)}}" class="btn btn-primary ">Editar</a>
+                        <a href="{{route('publication.show', $publication->id)}}" class="btn btn-secondary ">Ver</a>
+                        <a href="{{route('publication.destroy', $publication->id)}}" class="btn btn-danger"> Eliminar</a>
                     </th>
                 </tr>
                 @endforeach

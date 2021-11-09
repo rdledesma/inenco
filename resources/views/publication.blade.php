@@ -16,7 +16,7 @@
 
 
 
-        <title>GEERS</title>
+        <title>{{ config('app.name') }} | Publicaciones</title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 

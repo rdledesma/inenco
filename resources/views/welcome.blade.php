@@ -90,7 +90,7 @@
 
                             <li><a href="blog.html" title="Blog">Recursos</a></li>
 
-                            <li><a href="contact.html" title="Contact">Contacto</a></li>
+                            <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
 
                         </ul>
 
@@ -183,7 +183,7 @@
 
                     <li><a href="blog.html" title="Blog">Blog</a></li>
 
-                    <li><a href="contact.html" title="Contact">Contacto</a></li>
+                    <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
 
                 </ul>
 

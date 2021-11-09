@@ -83,7 +83,7 @@
 
                             <li><a href="blog.html" title="Blog">Recursos</a></li>
 
-                            <li><a href="contact.html" title="Contact">Contacto</a></li>
+                            <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
 
                         </ul>
 
@@ -225,17 +225,6 @@
         <!-- footer -->
 
         <footer role="footer">
-
-            <!-- logo -->
-
-                <h1>
-
-                    <a href="/" title="inenco"><img src="images/logow.png" title="avana LLC" alt="avana LLC"/></a>
-
-                </h1>
-
-            <!-- logo -->
-
             <!-- nav -->
 
             <nav role="footer-nav">
@@ -248,7 +237,7 @@
 
                     <li><a href="blog.html" title="Blog">Recursos</a></li>
 
-                    <li><a href="contact.html" title="Contact">Contacto</a></li>
+                    <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
 
                 </ul>
 
