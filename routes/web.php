@@ -1,6 +1,7 @@
 <?php
 use App\Integrant;
 use App\Publication;
+use App\Ad;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,8 @@ use App\Publication;
 */
 
 Route::get('/', function () {
-    $publications = Publication::where('state','active')->get();
-    return view('welcome', compact('publications'));
+    $ad = Ad::first()->content;
+    return view('welcome', compact('ad'));
 });
 
 Auth::routes();
