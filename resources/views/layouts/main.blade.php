@@ -52,7 +52,7 @@
                                         <a class="nav-link h6" href="{{url('/integrantes')}}">INTEGRANTES</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h6" href="{{url('/')}}">RECURSOS</a>
+                                        <a class="nav-link h6" href="{{route('recursos')}}">RECURSOS</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link h6" href="{{url('/contacto')}}">CONTACTO</a>
