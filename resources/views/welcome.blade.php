@@ -1,244 +1,52 @@
-<!DOCTYPE HTML>
+@extends('layouts.main')
 
- <html>
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
 
-    <head>
 
-    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-
-        <meta charset="utf-8">
-
-        <!-- Description, Keywords and Author -->
-
-        <meta name="description" content="">
-
-        <meta name="author" content="">
-
-
-
-        <title>{{ config('app.name') }}</title>
-
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-
-
-
-        <!-- style -->
-
-        <link href="css/style.css" rel="stylesheet" type="text/css">
-
-        <!-- style -->
-
-        <!-- bootstrap -->
-
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-
-        <!-- responsive -->
-
-        <link href="css/responsive.css" rel="stylesheet" type="text/css">
-
-        <!-- font-awesome -->
-
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-        <!-- font-awesome -->
-
-        <link href="css/effects/set2.css" rel="stylesheet" type="text/css">
-
-        <link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
-
-        <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
-
-	</head>
-
-
-
-    <body>
-
-
-
-    	<!-- header -->
-
-        	<header role="header">
-
-            	<div class="container">
-
-                	<!-- logo -->
-
-                    	<h1>
-
-                        	<a href="{{ url('/') }}" title="GEERS"><img src="images/logo.png" width="400%" title="avana LLC" alt="GEERS"/></a>
-
-                        </h1>
-
-                    <!-- logo -->
-
-                    <!-- nav -->
-                    @if (Route::has('login'))
-                    <div class="top-right links">
-                        @auth
-                            <a href="{{ url('/home') }}">Home</a>
-                        @endauth
-                    </div>
-                    @endif
-                    <nav role="header-nav" class="navy">
-
-                        <ul>
-
-                            <li class="nav-active"><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
-
-                            <li ><a href="{{route('integrantes')}}" title="Integrantes">Integrantes</a></li>
-
-                            <li><a href="blog.html" title="Blog">Recursos</a></li>
-
-                            <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
-
-                        </ul>
-
-                    </nav>
-
-                    <!-- nav -->
-
-                </div>
-
-            </header>
-
-        <!-- header -->
-
-        <!-- main -->
-
-        <main role="main-home-wrapper" class="container">
-
-
-
-            <div class="row">
-
-
-
-            	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
-
-                	<article role="pge-title-content">
-
-                    	<header>
-
-                        	<h2><span>GEERS</span> Grupo de Estudio y Evaluación de la Radiación Solar  </h2>
-
-                        </header>
-
-                       {{--  <p>Aquí podemos escribir nombre de grupo o alguna frase identificatoria.</p>
- --}}
-                    </article>
-
-                </section>
-
-
-
-
-                @foreach ($publications as $item)
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-
-                	<figure class="effect-oscar">
-
-                    	<img src="{{$item->image_1}}" alt="" class="img-responsive"/>
-
-                        <figcaption>
-
-                        	<h3>{{$item->title}}</h3>
-
-							<p class="lead"><small>{{ substr($item->copete, 0,  115).'...' }} </small></p>
-
-							<a href="{{route('publication.ver', $item->id)}}">View more</a>
-
-                        </figcaption>
-
-                    </figure>
-
-                </section>
-                @endforeach
-                <div class="clearfix"></div>
-
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="https://a.tile.openstreetmap.org/7/44/76.png" class="d-block w-100 opacity-75" height="300vh" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="https://cdnnmundo1.img.sputniknews.com/img/109108/04/1091080480_0:120:1280:840_600x0_80_0_0_7b68f120af38462b93c6d9208c566734.jpg.webp" class="d-block w-100 opacity-75" height="300vh" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="10000">
+                <img src="https://s.w-x.co/util/image/w/0102_grayson_vis_0.jpg?crop=16:9&width=980&format=pjpg&auto=webp&quality=60" class="d-block w-100 opacity-75" height="300vh" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>First slide label</h5>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
 
-        </main>
-
-    	<!-- main -->
-
-        <!-- footer -->
-
-        <footer role="footer">
-
-            <!-- logo -->
-
-
-            <!-- logo -->
-
-            <!-- nav -->
-
-            <nav role="footer-nav">
-
-            	<ul>
-
-                	<li><a href="{{ url('/') }}" title="Work">Publicaciones</a></li>
-
-                    <li><a href="{{ url('/integrantes') }}" title="Integrantes">Integrantes</a></li>
-
-                    <li><a href="blog.html" title="Blog">Blog</a></li>
-
-                    <li><a href="{{route('contact')}}" title="Contacto">Contacto</a></li>
-
-                </ul>
-
-            </nav>
-
-            <!-- nav -->
-            <!--
-            <ul role="social-icons">
-
-            	<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-
-                <li><a href="#"><i class="fa fa-flickr" aria-hidden="true"></i></a></li>
-
-            </ul>
-            -->
-            <p class="copy-right">&copy; 2021 Todos los derechos reservados</p>
-
-        </footer>
-
-        <!-- footer -->
-
-
-
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-        <script src="js/jquery.min.js" type="text/javascript"></script>
-
-        <!-- custom -->
-
-		<script src="js/nav.js" type="text/javascript"></script>
-
-        <script src="js/custom.js" type="text/javascript"></script>
-
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
-
-        <script src="js/effects/masonry.pkgd.min.js"  type="text/javascript"></script>
-
-		<script src="js/effects/imagesloaded.js"  type="text/javascript"></script>
-
-		<script src="js/effects/classie.js"  type="text/javascript"></script>
-
-		<script src="js/effects/AnimOnScroll.js"  type="text/javascript"></script>
-
-        <script src="js/effects/modernizr.custom.js"></script>
-
-        <!-- jquery.countdown -->
-
-        <script src="js/html5shiv.js" type="text/javascript"></script>
-
-    </body>
-
-</html>
+          <div class="mt-5">
+            {!!$ad!!}
+          </div>
+    </div>
+</div>
+@endsection

@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(IntegrantSeeder::class);
         $this->call(PublicationSeeder::class);
         $this->call(MessageSeeder::class);
+        $this->call(AdSeeder::class);
     }
 }
