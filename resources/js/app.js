@@ -13,3 +13,6 @@ require('./bootstrap');
  */
 
 require('./components/Example');
+body {
+    font-family: 'Oswald', sans-serif !important;
+  }
