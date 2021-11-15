@@ -2,6 +2,7 @@
 use App\Integrant;
 use App\Publication;
 use App\Ad;
+use App\Resource;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('integrant', 'IntegrantController');
 Route::resource('publication', 'PublicationController');
 Route::resource('message', 'MessageController');
-
+Route::resource('resource', 'ResourceController');
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
@@ -39,4 +40,17 @@ Route::get('/integrantes', function () {
     $integrants = Integrant::where('state','active')->orderBy('name')->get();
     return view('about', compact('integrants'));
 })->name('integrantes');
+
+
+
+
+Route::get('/recursos', function ()
+{
+
+    $resources = Resource::where('state','active')->orderBy('name')->get();
+    return view('recursos', compact('resources'));
+})->name('recursos');
+
+Route::post('recursos', 'ResourceController@search')->name('recursos.search');
+
 
