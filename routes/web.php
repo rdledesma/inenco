@@ -3,6 +3,7 @@ use App\Integrant;
 use App\Publication;
 use App\Ad;
 use App\Resource;
+use App\Proyect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +28,10 @@ Route::resource('integrant', 'IntegrantController');
 Route::resource('publication', 'PublicationController');
 Route::resource('message', 'MessageController');
 Route::resource('resource', 'ResourceController');
+Route::resource('project', 'ProyectController');
+
+
+
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
@@ -52,3 +57,12 @@ Route::get('/recursos', function ()
 })->name('recursos');
 
 Route::post('recursos', 'ResourceController@search')->name('recursos.search');
+
+
+Route::view('investigacion', 'investigation.index')->name('investigation.index');
+Route::get('/proyectos', function (){
+
+    $activeProjects = Proyect::where('state','active')->orderBy('name')->get();
+    $executedProjects = Proyect::where('state','executed')->orderBy('name')->get();
+    return view('investigation.projects', compact(['activeProjects','executedProjects']));
+})->name('proyectos');
