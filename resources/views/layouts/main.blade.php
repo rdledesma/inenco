@@ -43,19 +43,22 @@
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
                                     <li class="nav-item">
-                                        <a  class="nav-link h6" href="{{url('/')}}">PUBLICACIONES</a>
+                                        <a  class="nav-link h5" href="{{url('/')}}">INICIO</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h6" href="{{url('/')}}">ARTICULOS</a>
+                                        <a  class="nav-link h5" href="{{url('/')}}">INVESTIGACIÓN</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h6" href="{{url('/integrantes')}}">INTEGRANTES</a>
+                                        <a class="nav-link h5" href="{{url('/')}}">ARTICULOS</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h6" href="{{route('recursos')}}">RECURSOS</a>
+                                        <a class="nav-link h5" href="{{url('/integrantes')}}">INTEGRANTES</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h6" href="{{url('/contacto')}}">CONTACTO</a>
+                                        <a class="nav-link h5" href="{{route('recursos')}}">RECURSOS</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link h5" href="{{url('/contacto')}}">CONTACTO</a>
                                     </li>
                             </ul>
                         </div>

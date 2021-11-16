@@ -52,5 +52,3 @@ Route::get('/recursos', function ()
 })->name('recursos');
 
 Route::post('recursos', 'ResourceController@search')->name('recursos.search');
-
-
