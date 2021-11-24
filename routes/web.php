@@ -3,6 +3,8 @@ use App\Integrant;
 use App\Publication;
 use App\Ad;
 use App\Resource;
+use App\Proyect;
+use App\Article;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +29,10 @@ Route::resource('integrant', 'IntegrantController');
 Route::resource('publication', 'PublicationController');
 Route::resource('message', 'MessageController');
 Route::resource('resource', 'ResourceController');
+Route::resource('project', 'ProyectController');
+Route::resource('article', 'ArticleController');
+
+
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
@@ -52,3 +58,21 @@ Route::get('/recursos', function ()
 })->name('recursos');
 
 Route::post('recursos', 'ResourceController@search')->name('recursos.search');
+
+
+Route::view('investigacion', 'investigation.index')->name('investigation.index');
+Route::get('/proyectos', function (){
+
+    $activeProjects = Proyect::where('state','active')->orderBy('name')->get();
+    $executedProjects = Proyect::where('state','executed')->orderBy('name')->get();
+    return view('investigation.projects', compact(['activeProjects','executedProjects']));
+})->name('proyectos');
+
+Route::get('/articulos', function (){
+
+    $articles = Article::where('state','active')->with('files')->get();
+    return view('investigation.articles', compact('articles'));
+})->name('articulos');
+
+
+Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.file');

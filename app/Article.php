@@ -10,4 +10,9 @@ class Article extends Model
         'description',
         'state'
     ];
+
+
+    public function files(){
+        return $this->hasMany(ArticleFile::class);
+    }
 }

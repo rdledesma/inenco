@@ -46,11 +46,9 @@
                                         <a  class="nav-link h5" href="{{url('/')}}">INICIO</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a  class="nav-link h5" href="{{url('/')}}">INVESTIGACIÓN</a>
+                                        <a  class="nav-link h5" href="{{route('investigation.index')}}">INVESTIGACIÓN</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link h5" href="{{url('/')}}">ARTICULOS</a>
-                                    </li>
+
                                     <li class="nav-item">
                                         <a class="nav-link h5" href="{{url('/integrantes')}}">INTEGRANTES</a>
                                     </li>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Article;
 use Illuminate\Http\Request;
-
+use App\ArticleFile;
 class ArticleController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -36,7 +36,33 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'description' => 'required'
+        ]);
+
+        $article = new Article($request->all());
+        $article->save();
+
+        $files = $request->file('files');
+
+
+        if($request->hasFile('files'))
+        {
+
+
+            foreach ($request->file('files') as $file) {
+                $fileName = $file->getClientOriginalName();
+                $file->storeAs('articles', $fileName);
+                $articleFile = new ArticleFile();
+                $articleFile['article_id'] = $article->id;
+                $articleFile['file'] = $file->getClientOriginalName();
+                $articleFile->save();
+
+            }
+        }
+
+        return redirect()->route('article.index');
+
     }
 
     /**
