@@ -5,7 +5,7 @@
 
     <div class="btn-group">
         <a href="{{route('investigation.index')}}" class="btn btn-dark">Investigación</a>
-        <a href="" class="btn btn-dark">Articulos</a>
+        <a href="{{route('articulos')}}" class="btn btn-dark">Articulos</a>
         <a href="{{route('proyectos')}}" class="btn btn-dark active">Proyectos</a>
     </div>
 

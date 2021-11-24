@@ -9,7 +9,7 @@
             </div>
 
             <div class="col">
-                <a class="btn btn-secondary btn-rounded" href="{{route('publication.create')}}" >Nueva Publicación</a>
+                <a class="btn btn-secondary btn-rounded" href="{{route('article.create')}}" >Nuevo Artículo</a>
             </div>
         <table class="table table-hover">
             <thead>
@@ -22,9 +22,9 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($articless as $item)
+                @foreach ($articles as $item)
                 <tr>
-                    <th>{{$item->description}}</th>
+                    <th>{!!$item->description!!}</th>
                     <th>{{$item->created_at->format('d-m-Y') }}</th>
                     <th>
                         <a href="" class="btn btn-primary ">Editar</a>

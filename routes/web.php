@@ -4,6 +4,7 @@ use App\Publication;
 use App\Ad;
 use App\Resource;
 use App\Proyect;
+use App\Article;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +30,7 @@ Route::resource('publication', 'PublicationController');
 Route::resource('message', 'MessageController');
 Route::resource('resource', 'ResourceController');
 Route::resource('project', 'ProyectController');
-
+Route::resource('article', 'ArticleController');
 
 
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
@@ -66,3 +67,12 @@ Route::get('/proyectos', function (){
     $executedProjects = Proyect::where('state','executed')->orderBy('name')->get();
     return view('investigation.projects', compact(['activeProjects','executedProjects']));
 })->name('proyectos');
+
+Route::get('/articulos', function (){
+
+    $articles = Article::where('state','active')->with('files')->get();
+    return view('investigation.articles', compact('articles'));
+})->name('articulos');
+
+
+Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.file');
