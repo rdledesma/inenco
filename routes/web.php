@@ -19,7 +19,7 @@ use App\Article;
 Route::get('/', function () {
     $ad = Ad::first()->content;
     return view('welcome', compact('ad'));
-});
+})->name('welcome');
 
 Auth::routes();
 

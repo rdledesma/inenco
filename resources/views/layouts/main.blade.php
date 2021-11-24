@@ -43,20 +43,20 @@
                             <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
                                     <li class="nav-item">
-                                        <a  class="nav-link h5" href="{{url('/')}}">INICIO</a>
+                                        <a  class="nav-link h5 {{Route::is('welcome') ? 'active' : '' }} " href="{{url('/')}}">INICIO</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a  class="nav-link h5" href="{{route('investigation.index')}}">INVESTIGACIÓN</a>
+                                        <a  class="nav-link h5 {{Route::is('investigation.index') ? 'active' : '' }} " href="{{route('investigation.index')}}">INVESTIGACIÓN</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link h5" href="{{url('/integrantes')}}">INTEGRANTES</a>
+                                        <a class="nav-link h5 {{Route::is('integrantes') ? 'active' : '' }} " href="{{url('/integrantes')}}">INTEGRANTES</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h5" href="{{route('recursos')}}">RECURSOS</a>
+                                        <a class="nav-link h5 {{Route::is('recursos') ? 'active' : '' }} " href="{{route('recursos')}}">RECURSOS</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link h5" href="{{url('/contacto')}}">CONTACTO</a>
+                                        <a class="nav-link h5 {{Route::is('contact') ? 'active' : '' }} " href="{{url('/contacto')}}">CONTACTO</a>
                                     </li>
                             </ul>
                         </div>
