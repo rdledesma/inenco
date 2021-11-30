@@ -1,7 +1,7 @@
 <?php
 use App\Integrant;
 use App\Publication;
-use App\Ad;
+use App\Cover;
 use App\Resource;
 use App\Proyect;
 use App\Article;
@@ -17,7 +17,7 @@ use App\Article;
 */
 
 Route::get('/', function () {
-    $ad = Ad::first()->content;
+    $ad = Cover::where('pagina', 'INICIO')->first();
     return view('welcome', compact('ad'));
 })->name('welcome');
 
@@ -31,7 +31,7 @@ Route::resource('message', 'MessageController');
 Route::resource('resource', 'ResourceController');
 Route::resource('project', 'ProyectController');
 Route::resource('article', 'ArticleController');
-
+Route::resource('cover', 'CoverController');
 
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
@@ -60,7 +60,13 @@ Route::get('/recursos', function ()
 Route::post('recursos', 'ResourceController@search')->name('recursos.search');
 
 
-Route::view('investigacion', 'investigation.index')->name('investigation.index');
+Route::get('investigacion', function (){
+    $cover = Cover::where('pagina','INVESTIGACION')->first();
+    return view('investigation.index', compact('cover'));
+})->name('investigation.index');
+
+
+
 Route::get('/proyectos', function (){
 
     $activeProjects = Proyect::where('state','active')->orderBy('name')->get();

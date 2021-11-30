@@ -10,7 +10,7 @@
       </div>
 
 
-
+    {!! $cover->content!!}
 
 </div>
 @endsection

@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AdSeeder::class);
 
         $this->call(ProyectSeeder::class);
+        $this->call(CoverSeeder::class);
     }
 }

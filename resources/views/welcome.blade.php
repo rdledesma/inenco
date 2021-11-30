@@ -45,7 +45,7 @@
           </div>
 
           <div class="mt-5">
-            {!!$ad!!}
+            {!!$ad->content!!}
           </div>
     </div>
 </div>
