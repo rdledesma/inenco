@@ -82,3 +82,4 @@ Route::get('/articulos', function (){
 
 
 Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.file');
+Route::get('/cv/{id}', 'IntegrantController@getCV')->name('integrant.file');

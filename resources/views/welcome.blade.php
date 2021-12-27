@@ -4,13 +4,13 @@
 <div class="container">
     <div class="row justify-content-center">
 
-
-        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        {{-- <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
               <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
+            /888888888
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="10000">
                 <img src="https://a.tile.openstreetmap.org/7/44/76.png" class="d-block w-100 opacity-75" height="300vh" alt="...">
@@ -42,11 +42,16 @@
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
-          </div>
+          </div> --}}
+
 
           <div class="mt-5">
-            {!!$ad->content!!}
+            @if ($ad)
+                {!!$ad->content!!}
+            @endif
+
           </div>
     </div>
 </div>
 @endsection
+

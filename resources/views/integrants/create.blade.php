@@ -97,6 +97,20 @@
                 </div>
 
 
+                <div class="form-group">
+                    <label for="title">CV:</label>
+                    <input class="form-control bg-ligth shadow-sm @if($errors->first('file')) is-invalid @else border-0 @endif"
+                    id="file"
+                    type="file"
+                    name="file"
+                    value="{{old('file')}}">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong> {{ $errors->first('file', ':message') }} </strong>
+                        </span>
+                </div>
+
+
 
                 <button type="submit" class="btn btn-primary btn-lg btn-rounded">Guardar</button>
                 <a href={{route('integrant.index')}} class="btn btn-outline-primary btn-lg btn-rounded">Cancelar</a>

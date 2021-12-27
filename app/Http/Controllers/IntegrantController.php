@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Integrant;
 use Illuminate\Http\Request;
 
@@ -37,7 +37,41 @@ class IntegrantController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name'     => 'required',
+            'title'    => 'required',
+            'email'    => 'required',
+            'description' => 'required'
+        ]);
 
+
+        $integrant = new Integrant();
+
+        $integrant['email'] = $request['email'];
+        $integrant['name'] = $request['name'];
+        $integrant['title'] = $request['title'];
+        $integrant['description'] = $request['description'];
+
+
+        $image = $request->file('url_photo');
+        if($image){
+            $response = cloudinary()->upload($image_1->getRealPath(),['invalidate'=>true]);
+            $integrant['url_photo'] = $response->getPublicId();
+            $integrant['photo_id'] = $response->getSecurePath();
+        }
+
+        if($request->file){
+
+            $fileName = $request->file->getClientOriginalName();
+            $request->file->storeAs('cv', $fileName);
+            $integrant['cv'] = $request->file->getClientOriginalName();
+
+        }
+
+
+        if($integrant->save()){
+            return redirect()->route('integrant.index')->with('alert', 'Integrante actualizado con éxito');
+        }
     }
 
     /**
@@ -115,5 +149,11 @@ class IntegrantController extends Controller
         $integrant->update();
 
         return redirect()->route('integrant.index');
+    }
+
+
+    public function getCV($id){
+        $integrant  = Integrant::where('id',$id)->first();
+        return Storage::download('cv/'.$integrant->cv);
     }
 }

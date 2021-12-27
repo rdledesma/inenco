@@ -12,6 +12,7 @@ class Integrant extends Model
         'description',
         'url_photo',
         'photo_id',
-        'state'
+        'state',
+        'cv'
     ];
 }
