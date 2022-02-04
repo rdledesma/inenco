@@ -15,14 +15,12 @@ class CreateIntegrantsTable extends Migration
     {
         Schema::create('integrants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('title');
+            $table->string('charge');
             $table->string('description');
-            $table->string('email');
             $table->string('url_photo')->default('https://avataaars.io/?avatarStyle=Circle&topType=Hat&accessoriesType=Round&facialHairType=Blank&clotheType=BlazerSweater&eyeType=EyeRoll&eyebrowType=FlatNatural&mouthType=Sad&skinColor=Pale');
-            $table->string('photo_id')->default('1');
-            $table->string('state')->default('active');
             $table->string('cv')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

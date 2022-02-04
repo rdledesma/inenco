@@ -25,13 +25,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('integrant', 'IntegrantController');
-Route::resource('publication', 'PublicationController');
-Route::resource('message', 'MessageController');
-Route::resource('resource', 'ResourceController');
-Route::resource('project', 'ProyectController');
-Route::resource('article', 'ArticleController');
-Route::resource('cover', 'CoverController');
+
 
 Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
 
@@ -43,7 +37,12 @@ Route::get('/contacto', function () {
 
 
 Route::get('/integrantes', function () {
-    $integrants = Integrant::where('state','active')->orderBy('name')->get();
+
+    $integrants = Integrant::with(array('user' => function($query)
+    {
+        $query->where('state', 'active');
+    }))
+        ->get()->sortByDesc('user.name');
     return view('about', compact('integrants'));
 })->name('integrantes');
 
@@ -83,3 +82,14 @@ Route::get('/articulos', function (){
 
 Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.file');
 Route::get('/cv/{id}', 'IntegrantController@getCV')->name('integrant.file');
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resource('integrant', 'IntegrantController');
+    Route::resource('publication', 'PublicationController');
+    Route::resource('message', 'MessageController');
+    Route::resource('resource', 'ResourceController');
+    Route::resource('project', 'ProyectController');
+    Route::resource('article', 'ArticleController');
+    Route::resource('cover', 'CoverController');
+});

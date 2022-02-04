@@ -96,6 +96,19 @@
                         </span>
                 </div>
 
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input class="form-control bg-ligth shadow-sm @if($errors->first('password')) is-invalid @else border-0 @endif"
+                    id="password"
+                    type="password"
+                    name="password"
+                    value="{{old('password')}}">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong> {{ $errors->first('password', ':message') }} </strong>
+                        </span>
+                </div>
+
 
                 <div class="form-group">
                     <label for="title">CV:</label>

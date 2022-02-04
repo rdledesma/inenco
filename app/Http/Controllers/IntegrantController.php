@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use App\Integrant;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+
 
 class IntegrantController extends Controller
 {
@@ -14,7 +17,15 @@ class IntegrantController extends Controller
      */
     public function index()
     {
-        $integrants = Integrant::where('state','active')->orderBy('name')->get();
+
+        $integrants = Integrant::with(array('user' => function($query)
+        {
+            $query->where('state', 'active');
+        }))
+            ->get()->sortByDesc('user.name');
+
+
+
         return view('integrants.index', compact('integrants'));
 
     }
@@ -41,7 +52,8 @@ class IntegrantController extends Controller
             'name'     => 'required',
             'title'    => 'required',
             'email'    => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'password' => 'required'
         ]);
 
 
@@ -53,11 +65,14 @@ class IntegrantController extends Controller
         $integrant['description'] = $request['description'];
 
 
-        $image = $request->file('url_photo');
+        $image = $request->file('photo');
+
         if($image){
-            $response = cloudinary()->upload($image_1->getRealPath(),['invalidate'=>true]);
-            $integrant['url_photo'] = $response->getPublicId();
-            $integrant['photo_id'] = $response->getSecurePath();
+
+            $fileName = $image->getClientOriginalName();
+            $image->storeAs('phots', $fileName);
+            $integrant['url_photo'] = $image->getClientOriginalName();
+
         }
 
         if($request->file){
@@ -69,9 +84,18 @@ class IntegrantController extends Controller
         }
 
 
-        if($integrant->save()){
-            return redirect()->route('integrant.index')->with('alert', 'Integrante actualizado con éxito');
-        }
+
+
+            $user = new User;
+            $user['name'] = $request['name'];
+            $user['email'] = $request['email'];
+            $user['password'] = Hash::make($request['password']);
+            $user->save();
+
+            $integrant['user_id'] = $user->id;
+            if($integrant->save()){
+                return redirect()->route('integrant.index')->with('alert', 'Integrante actualizado con éxito');
+             }
     }
 
     /**
