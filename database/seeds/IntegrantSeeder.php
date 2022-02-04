@@ -20,10 +20,26 @@ class IntegrantSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
+
+        DB::table('users')->insert([
+            'name' => 'Roxana',
+            'email' => 'roxana@geers.com',
+            'password' => Hash::make('123123'),
+            'remember_token' => Str::random(10),
+        ]);
+
         DB::table('integrants')->insert([
             'user_id' => 1,
-            'charge' => 'Becario CONICET',
+            'charge' => 'Becario',
             'description' => 'Lic. en Análisis de Sistemas',
+        ]);
+
+
+
+        DB::table('integrants')->insert([
+            'user_id' => 2,
+            'charge' => 'Becaria',
+            'description' => 'Lic. FI',
         ]);
 
     }

@@ -38,11 +38,8 @@ Route::get('/contacto', function () {
 
 Route::get('/integrantes', function () {
 
-    $integrants = Integrant::with(array('user' => function($query)
-    {
-        $query->where('state', 'active');
-    }))
-        ->get()->sortByDesc('user.name');
+    $integrants = Integrant::with('user')->get();
+
     return view('about', compact('integrants'));
 })->name('integrantes');
 
