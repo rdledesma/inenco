@@ -146,8 +146,12 @@ class PublicationController extends Controller
      * @param  \App\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Publication $publication)
+    public function destroy($id)
     {
-        //
+        $publication = Publication::where('id', $id)->first();
+
+        $publication->state = 'deleted';
+        $publication->save();
+        return redirect()->route('publication.index')->with('alert', 'Publicación eliminada');
     }
 }
