@@ -43,8 +43,6 @@ class PublicationController extends Controller
             'description'    => 'required',
             'copete'    => 'required',
             'image_1'    => 'mimes:jpg,jpeg,png',
-            'image_2'     => 'mimes:jpg,jpeg,png',
-            'image_3'     => 'mimes:jpg,jpeg,png',
         ]);
 
 
@@ -57,28 +55,12 @@ class PublicationController extends Controller
             $publication['id_image_1'] = $response->getPublicId();
             $publication['image_1'] = $response->getSecurePath();
         }
-        if($image_2){
-            $response = cloudinary()->upload($image_2->getRealPath(),['invalidate'=>true]);
-            $publication['id_image_2'] = $response->getPublicId();
-            $publication['image_2'] = $response->getSecurePath();
-        }
-
-        if($image_3){
-            $response = cloudinary()->upload($image_3->getRealPath(),['invalidate'=>true]);
-            $publication['id_image_3'] = $response->getPublicId();
-            $publication['image_3'] = $response->getSecurePath();
-        }
 
         $publication['slug'] =  Str::slug($publication->title);
 
         if($publication->save()){
             return redirect()->route('publication.index')->with('alert', 'Nueva publicación creada con éxito');
         }
-
-
-
-
-
 
     }
 
@@ -88,9 +70,9 @@ class PublicationController extends Controller
      * @param  \App\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
-        $publication = Publication::where('slug','=', $slug)->firstOrFail();
+        $publication = Publication::where('id', $id)->firstOrFail();
         return view('publications.show', compact('publication'));
     }
 
@@ -107,9 +89,10 @@ class PublicationController extends Controller
      * @param  \App\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function edit(Publication $publication)
+    public function edit($id)
     {
-        //
+        $publication = Publication::where('id', $id)->firstOrFail();
+        return view('publications.edit', compact('publication'));
     }
 
     /**
@@ -119,9 +102,42 @@ class PublicationController extends Controller
      * @param  \App\Publication  $publication
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Publication $publication)
+    public function update(Request $request, $id)
     {
-        //
+        $publication = Publication::where('id',$id)->first();
+
+
+
+        $request->validate([
+            'title'     => 'required',
+            'description'    => 'required',
+            'copete'    => 'required',
+            'image_1'    => 'mimes:jpg,jpeg,png',
+        ]);
+
+
+
+        $publication['title'] = $request['title'];
+        $publication['description'] = $request['description'];
+        $publication['copete'] = $request['copete'];
+
+        $image_1 = $request->file('image_1');
+        if($image_1){
+            $response = cloudinary()->upload($image_1->getRealPath(),['invalidate'=>true]);
+            $publication['id_image_1'] = $response->getPublicId();
+            $publication['image_1'] = $response->getSecurePath();
+        }
+
+
+
+        if(Str::slug($publication->title) != $publication->slug){
+            $publication['slug'] =  Str::slug($publication->title);
+        }
+
+
+        if($publication->save()){
+            return redirect()->route('publication.index')->with('alert', 'Nueva publicación creada con éxito');
+        }
     }
 
     /**
