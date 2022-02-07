@@ -15,7 +15,7 @@ class IntegrantSeeder extends Seeder
 
         DB::table('users')->insert([
             'name' => 'Ruben Ledesma',
-            'email' => 'rdledesma1995@gmail.com',
+            'email' => 'rdledesma@geers.com',
             'password' => Hash::make('123123'),
             'remember_token' => Str::random(10),
         ]);

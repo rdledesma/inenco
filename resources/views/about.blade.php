@@ -15,7 +15,7 @@
               <p>{{$item->charge}} </p>
               <p>{{$item->description}}</p>
               <p>{{$item->email}}</p>
-              <a href="{{route('integrant.file', $item->id)}}">Curriculum</a>
+              <a href="{{route('integrant.file', $item->id)}}">Descargar cv</a>
             </div>
         </div>
       </div>

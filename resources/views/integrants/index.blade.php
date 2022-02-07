@@ -23,9 +23,13 @@
             </thead>
             <tbody>
                 @foreach ($integrants as $integrant)
+
+
                 <tr>
                     <th>{{$integrant->name}}</th>
-                    <th> <img height="120" src="{{'images/categories' .$integrant->url_photo}}" alt="img"></th>
+                    <th> <img height="120" src="{{$integrant->url_photo}}" alt="img"></th>
+
+                    @if (auth()->user()->id ==$integrant->user_id )
                     <th> <form action="{{ route('integrant.destroy', $integrant->id)}}" method="post">
                         @csrf
                         @method('DELETE')
@@ -34,6 +38,9 @@
 
                         <button class="btn btn-danger" type="submit">Eliminar</button>
                       </form></th>
+                    @endif
+
+
                 </tr>
                 @endforeach
             </tbody>
