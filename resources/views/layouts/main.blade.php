@@ -26,42 +26,7 @@
 <body>
 
     <div id="app" >
-                <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div class="container">
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            <!-- {{ config('app.name', 'Laravel') }} Admin -->
-                            <img src="{{asset('images/logo.png')}}" alt="Imagen Logo" width="100px"/>
-                        </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <!-- Left Side Of Navbar -->
-
-                            <!-- Right Side Of Navbar -->
-                            <ul class="navbar-nav ml-auto">
-                                <!-- Authentication Links -->
-                                    <li class="nav-item">
-                                        <a  class="nav-link h5 {{Route::is('welcome') ? 'active' : '' }} " href="{{url('/')}}">INICIO</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a  class="nav-link h5 {{Route::is('investigation.index') ? 'active' : '' }} " href="{{route('investigation.index')}}">INVESTIGACIÓN</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link h5 {{Route::is('integrantes') ? 'active' : '' }} " href="{{url('/integrantes')}}">INTEGRANTES</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link h5 {{Route::is('recursos') ? 'active' : '' }} " href="{{route('recursos')}}">RECURSOS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link h5 {{Route::is('contact') ? 'active' : '' }} " href="{{url('/contacto')}}">CONTACTO</a>
-                                    </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+                @include('layouts.components.navbar')
 
                 <main class="py-4">
                     @yield('content')

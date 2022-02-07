@@ -2,23 +2,28 @@
 @section('content')
 
 <div class="container">
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
 
     @foreach ($integrants as $item)
-
-    <div class="row mt-2">
-        <div class="col-md-3">
-            <div class="imgAbt">
-                <img width="220" height="220" src="https://lh3.googleusercontent.com/a/default-user=s40-c" />
+    <div class="col">
+        <div class="card">
+          <img class="card-img-top " height="200" src="{{$item->url_photo}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{$item->name}}</h5>
+            <div class="integrant">
+              <p>{{$item->charge}} </p>
+              <p>{{$item->description}}</p>
+              <p>{{$item->email}}</p>
+              <a href="{{route('integrant.file', $item->id)}}">Descargar cv</a>
             </div>
         </div>
-        <div class="col-md-8">
-            {{$item->name}} - {{$item->description}} - {{$item->title}}
-            <p>{{$item->email}}</p>
-        </div>
+      </div>
     </div>
     @endforeach
 
-
-
 </div>
+</div>
+
+
 @endsection

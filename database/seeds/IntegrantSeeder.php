@@ -1,7 +1,7 @@
 <?php
-
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Facades\Hash;
 class IntegrantSeeder extends Seeder
 {
     /**
@@ -11,37 +11,35 @@ class IntegrantSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('integrants')->delete();
+
+
+        DB::table('users')->insert([
+            'name' => 'Ruben Ledesma',
+            'email' => 'rdledesma@geers.com',
+            'password' => Hash::make('123123'),
+            'remember_token' => Str::random(10),
+        ]);
+
+
+        DB::table('users')->insert([
+            'name' => 'Roxana',
+            'email' => 'roxana@geers.com',
+            'password' => Hash::make('123123'),
+            'remember_token' => Str::random(10),
+        ]);
 
         DB::table('integrants')->insert([
-            'name'=> 'Pedro Picapiedra',
-            'title'=>'Becario',
-            'email'=>'rdledesma1995@gmail.com',
-            'description'=> 'Lic. en Análisis de Sistemas'
+            'user_id' => 1,
+            'charge' => 'Becario',
+            'description' => 'Lic. en Análisis de Sistemas',
         ]);
+
+
+
         DB::table('integrants')->insert([
-            'name'=> 'Rubén Darío Ledesma',
-            'title'=>'Becario',
-            'email'=>'rdledesma1995@gmail.com',
-            'description'=> 'Lic. en Análisis de Sistemas'
-        ]);
-        DB::table('integrants')->insert([
-            'name'=> 'Rubén Darío Ledesma',
-            'title'=>'Becario',
-            'email'=>'rdledesma1995@gmail.com',
-            'description'=> 'Lic. en Análisis de Sistemas'
-        ]);
-        DB::table('integrants')->insert([
-            'name'=> 'Rubén Darío Ledesma',
-            'title'=>'Becario',
-            'email'=>'rdledesma1995@gmail.com',
-            'description'=> 'Lic. en Análisis de Sistemas'
-        ]);
-        DB::table('integrants')->insert([
-            'name'=> 'Jack Frost',
-            'title'=>'Becario',
-            'email'=>'rdledesma1995@gmail.com',
-            'description'=> 'Lic. en Análisis de Sistemas'
+            'user_id' => 2,
+            'charge' => 'Becaria',
+            'description' => 'Lic. FI',
         ]);
 
     }

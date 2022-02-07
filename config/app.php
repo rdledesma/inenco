@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -179,6 +179,8 @@ return [
         \Tavux\IBMCloudObjectStorage\Laravel\IbmCloudObjectStorageProvider::class,
         CloudinaryLabs\CloudinaryLaravel\CloudinaryServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+
+        Laraveles\Spanish\SpanishServiceProvider::class,
     ],
 
     /*
