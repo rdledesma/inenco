@@ -23,10 +23,24 @@
             </thead>
             <tbody>
                 @foreach ($integrants as $integrant)
+
+
                 <tr>
                     <th>{{$integrant->name}}</th>
                     <th> <img height="120" src="{{$integrant->url_photo}}" alt="img"></th>
-                    <th> Ver </th>
+
+                    @if (auth()->user()->id ==$integrant->user_id )
+                    <th> <form action="{{ route('integrant.destroy', $integrant->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <a href="{{route('integrant.show', $integrant->id)}}" class="btn btn-secondary ">Ver</a>
+                        <a href="{{route('integrant.edit', $integrant->id)}}" class="btn btn-primary ">Editar</a>
+
+                        <button class="btn btn-danger" type="submit">Eliminar</button>
+                      </form></th>
+                    @endif
+
+
                 </tr>
                 @endforeach
             </tbody>

@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1>Nueva Integrante</h1>
+            <h1>Nuevo Integrante</h1>
         </div>
     </div>
 
@@ -93,6 +93,33 @@
 
                         <span class="invalid-feedback" role="alert">
                             <strong> {{ $errors->first('email', ':message') }} </strong>
+                        </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input class="form-control bg-ligth shadow-sm @if($errors->first('password')) is-invalid @else border-0 @endif"
+                    id="password"
+                    type="password"
+                    name="password"
+                    value="{{old('password')}}">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong> {{ $errors->first('password', ':message') }} </strong>
+                        </span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="title">CV:</label>
+                    <input class="form-control bg-ligth shadow-sm @if($errors->first('file')) is-invalid @else border-0 @endif"
+                    id="file"
+                    type="file"
+                    name="file"
+                    value="{{old('file')}}">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong> {{ $errors->first('file', ':message') }} </strong>
                         </span>
                 </div>
 
