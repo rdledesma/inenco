@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
 
             <div class="col">
-                <h1>Publicaciones</h1>
+                <h1>Anuncios</h1>
             </div>
 
             <div class="col">
@@ -22,10 +22,10 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($publications as $publication)
+                @foreach ($ads as $ad)
                 <tr>
                     <th>{{$publication->title}}</th>
-                    <th>{{ $publication->created_at }}</th>
+                    <th>{{$publication->created_at->format('d-m-Y') }}</th>
                     <th>
                         <a href="{{ route('publication.edit', $publication->id)}}" class="btn btn-primary ">Editar</a>
                         <a href="{{route('publication.show', $publication->id)}}" class="btn btn-secondary ">Ver</a>

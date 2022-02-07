@@ -5,6 +5,7 @@ use App\Cover;
 use App\Resource;
 use App\Proyect;
 use App\Article;
+use App\Ad;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +28,15 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 
-Route::get('/publicacion/{name}', 'PublicationController@ver')->name('publication.ver');
+
+
+
+Route::get('/publicaciones', function () {
+    $publications = Publication::get();
+    return view('publications', compact('publications'));
+})->name('publicaciones');
+
+Route::get('/publicaciones/{name}', 'PublicationController@ver')->name('publication.ver');
 
 
 Route::get('/contacto', function () {
@@ -77,6 +86,10 @@ Route::get('/articulos', function (){
 })->name('articulos');
 
 
+
+
+
+
 Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.file');
 Route::get('/cv/{id}', 'IntegrantController@getCV')->name('integrant.file');
 
@@ -89,4 +102,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('project', 'ProyectController');
     Route::resource('article', 'ArticleController');
     Route::resource('cover', 'CoverController');
+
+
 });

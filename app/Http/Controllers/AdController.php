@@ -14,7 +14,8 @@ class AdController extends Controller
      */
     public function index()
     {
-        //
+        $ads  = Ad::get();
+        return view('revista.index', compact('ads'));
     }
 
     /**
@@ -24,7 +25,7 @@ class AdController extends Controller
      */
     public function create()
     {
-        //
+        return view('revista.create');
     }
 
     /**

@@ -23,6 +23,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {{Route::is('publicaciones') ? 'active' : '' }} " href="{{url('/publicaciones')}}">REVISTA</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {{Route::is('contact') ? 'active' : '' }} " href="{{url('/contacto')}}">CONTACTO</a>
                     </li>
 

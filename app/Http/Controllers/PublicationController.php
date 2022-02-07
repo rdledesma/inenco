@@ -97,8 +97,8 @@ class PublicationController extends Controller
 
     public function ver($slug)
     {
-        $publication = Publication::where('id','=', $slug)->first();
-        return view('publication', compact('publication'));
+        $item = Publication::where('slug','=', $slug)->first();
+        return view('publication', compact('item'));
     }
 
     /**
