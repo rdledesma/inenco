@@ -42,6 +42,10 @@ class ResourceController extends Controller
         ]);
         $resource = new Resource();
         $resource['name'] = $request['name'];
+        $resource['date']  = $request['date'];
+
+
+
 
         if($request->file){
 
@@ -107,10 +111,14 @@ class ResourceController extends Controller
     public function search(Request $request)
     {
         $name = $request['name'];
+        $date = $request['date'];
 
-        $resources = Resource::where('state','active')->where('name', 'LIKE', '%'.$name.'%')->orderBy('name')->get();
+        $resources = Resource::where('state','active')
+                                ->where('name', 'LIKE', '%'.$name.'%')
+                                ->where('date', $date)
+                                ->orderBy('name')->get();
 
-        return view('recursos', compact('resources'));
+        return view('recursos', compact(['resources', 'name', 'date']));
 
 
     }

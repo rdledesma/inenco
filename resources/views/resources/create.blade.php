@@ -23,7 +23,7 @@
 
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input class="form-control bg-ligth shadow-sm @if($errors->first('name')) is-invalid @else border-0 @endif"
+                    <input required class="form-control bg-ligth shadow-sm @if($errors->first('name')) is-invalid @else border-0 @endif"
                     id="name"
                     type="name"
                     name="name"
@@ -34,9 +34,23 @@
                         </span>
                 </div>
 
+
+                <div class="form-group">
+                    <label for="name">Fecha</label>
+                    <input required class="form-control bg-ligth shadow-sm @if($errors->first('date')) is-invalid @else border-0 @endif"
+                    id="date"
+                    type="date"
+                    name="date"
+                    value="{{old('date')}}">
+
+                        <span class="invalid-feedback" role="alert">
+                            <strong> {{ $errors->first('date', ':message') }} </strong>
+                        </span>
+                </div>
+
                 <div class="form-group">
                     <label for="copete">Archivo</label>
-                    <input class="form-control bg-ligth shadow-sm @if($errors->first('file')) is-invalid @else border-0 @endif"
+                    <input required class="form-control bg-ligth shadow-sm @if($errors->first('file')) is-invalid @else border-0 @endif"
                     id="file"
                     type="file"
                     name="file"
@@ -53,7 +67,7 @@
 
 
                 <button type="submit" class="btn btn-primary btn-lg btn-rounded">Guardar</button>
-                <a href={{route('integrant.index')}} class="btn btn-outline-primary btn-lg btn-rounded">Cancelar</a>
+                <a href={{route('resource.index')}} class="btn btn-outline-primary btn-lg btn-rounded">Cancelar</a>
             </form>
         </div>
     </div>

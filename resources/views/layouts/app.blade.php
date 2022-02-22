@@ -45,6 +45,14 @@
                             <a class="nav-link text-center" href="{{route('integrant.index')}}">Integrantes</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-center" href="{{route('project.index')}}">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-center" href="{{route('resource.index')}}">Recursos</a>
+                        </li>
+
+
+                        <li class="nav-item">
                             <a class="nav-link text-center" href="{{route('message.index')}}">Mensajes</a>
                         </li>
                     </ul>

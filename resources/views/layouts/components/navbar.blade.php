@@ -23,11 +23,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{Route::is('publicaciones') ? 'active' : '' }} " href="{{url('/publicaciones')}}">REVISTA</a>
+                        <a class="nav-link {{Route::is('proyectos') ? 'active' : '' }}" href={{route('proyectos')}}>PROYECTOS</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{Route::is('contact') ? 'active' : '' }} " href="{{url('/contacto')}}">CONTACTO</a>
+                        <a class="nav-link {{Route::is('recursos') ? 'active' : '' }} " href="{{route('recursos')}}">RECURSOS</a>
                     </li>
 
 
@@ -36,11 +36,13 @@
                     <li class="nav-item ">
                         <a class="nav-link {{Route::is('articulos') ? 'active' : '' }}" href={{route('articulos')}}>ARTÍCULOS</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link {{Route::is('proyectos') ? 'active' : '' }}" href={{route('proyectos')}}>PROYECTOS</a>
+                        <a class="nav-link {{Route::is('publicaciones') ? 'active' : '' }} " href="{{url('/publicaciones')}}">REVISTA</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link {{Route::is('recursos') ? 'active' : '' }} " href="{{route('recursos')}}">RECURSOS</a>
+                        <a class="nav-link {{Route::is('contact') ? 'active' : '' }} " href="{{url('/contacto')}}">CONTACTO</a>
                     </li>
                 </ul>
 

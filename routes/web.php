@@ -94,6 +94,8 @@ Route::get('/articleFile/{id}', 'ArticleFileController@show')->name('article.fil
 Route::get('/cv/{id}', 'IntegrantController@getCV')->name('integrant.file');
 
 
+
+
 Route::middleware(['auth'])->group(function () {
     Route::resource('integrant', 'IntegrantController');
     Route::resource('publication', 'PublicationController');

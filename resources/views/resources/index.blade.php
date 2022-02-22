@@ -25,7 +25,8 @@
                 @foreach ($resources as $item)
                 <tr>
                     <th>{{$item->name}}</th>
-                    <th>{{$item->created_at->format('d-m-Y') }}</th>
+                    <th>{{ date('d-m-Y', strtotime($item->date))}}</th>
+
                     <th>
                         <a href="" class="btn btn-primary ">Cambiar</a>
                         <a href="{{route('resource.show', $item->id)}}" class="btn btn-secondary ">Descargar</a>

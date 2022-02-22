@@ -4,12 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class Data extends Model
 {
-    protected $fillable = [
+    protected $fillable =  [
         'name',
-        'file',
-        'state',
         'date',
+        'state'
     ];
 }
